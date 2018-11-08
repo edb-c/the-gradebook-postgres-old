@@ -1,0 +1,48 @@
+<% if @course_detail.errors.any? %>
+  <div class="msg msg-error z-depth-3 scale-transition">
+    <ul>
+    <% @course_detail.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for course_detail , url: {action: action} do |f| %>
+
+  <% if action == "create" %>
+  <div class="field">
+        <%= f.label :student_id %><br>
+        <%= f.collection_select(:student_id, current_teacher.course_details.select(:student_id).distinct, :student_id, :student_id, {:prompt => 'Please select Student ID'},class: "browser-default") %>
+    </div>
+  <% end %>
+
+  <% if action == "udpate" %>
+    <%= f.hidden_field :student_id, value: @course_detail.student_id %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :assignment_name %><br>
+    <%= f.text_field :assignment_name, :value => "#{@course_detail.assignment_name}" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :assignment_grade %><br>
+    <%= f.text_field :assignment_grade, :value => "#{@course_detail.assignment_grade}" %>
+  </div>
+
+  <%= f.hidden_field :course_id,  value: "#{params[:course_id]}" %>
+  <%= f.hidden_field :teacher_id, value: "#{current_teacher.id}" %>
+
+  <div class="actions">
+    <%if action == "udpate" %>
+        <%= f.submit "Edit this Course Detail" %>
+    <% elsif action == "create" %>
+        <%= f.submit "Create this Course Detail" %>
+    <% else %>
+        <%= f.submit %>
+    <% end %>
+  </div>
+
+<% end %>
+<h5><a href="/courses/<%= "#{current_teacher.id}" %>/course_details"><button class="btn btn-primary">GO BACK</button></a></h5>

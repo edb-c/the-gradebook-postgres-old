@@ -1,0 +1,100 @@
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center">The Gradebook</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">An Easy to Use Application for Teachers and Students to review Classes & Grades.</h5>
+        </div>
+        <div class="row center">
+        <% if teacher_signed_in? %>
+            <a href="/teacher_courses" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Teacher! See your courses.</a>
+        <% elsif student_signed_in? %>
+           <a href="/student_courses" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Welcome Student! See your courses.</a>
+        <% else %>
+            <a href="/teachers/sign_in" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Teacher Login</a>
+            <a href="/students/sign_in" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Student Login</a>
+        <% end %>
+
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/background1.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Ruby On Rails</h5>
+
+            <p class="light">At its core, Ruby on Rails, a web framework, is simply a set of Ruby code libraries, and since the entire codebase is open source. </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">ORM Active Record</h5>
+
+            <p class="light">Active Record is the built-in ORM (Object Relational Mapping system) that Rails utilizes to manage the model aspects of an application. Enables the application to manage data in a method driven structure.  </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Materializecss</h5>
+
+            <p class="light">Materialize CSS, Material Design, created and designed by Google is a UI component library which is created with CSS, JavaScript and HTML.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">An investment in knowledge pays the best interest.</h5>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/background2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Nota Bene</h4>
+          <p class="row center light">Optimism is the faith that leads to achievement. Nothing can be done without hope and confidence.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">When educating the minds of our youth, we must not forget to educate their hearts. – Dalai Lama</h5>
+        </div>
+      </div>
+    </div>
+  <div class="parallax"><img src="assets/background3.jpg" alt="Unsplashed background img 3"></div>
+
+</div>

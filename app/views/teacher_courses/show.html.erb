@@ -1,0 +1,30 @@
+<div class="devise_container">
+<h4>Welcome <%= current_teacher.firstname.capitalize if current_teacher.firstname %>!</h4>
+<%= hello %>
+    <% if current_teacher.teacher_courses.present? %>
+
+      <h5 class="green-text">Viewing student roster informaton for your <%= "#{get_course_name(params[:id])}" %> class:</h5>
+      <table>
+        <tbody>
+          <tr>
+          <td width="250"><h5>Student ID</h5></td>
+          <td width="250"><h5>Student Name</h5></td>
+          <td width="250"><h5>Student Average</h5></td>
+          </tr>
+          <tr>
+          <% current_teacher.course_details.select(:student_id).distinct.where(course_id: "#{params[:id]}").each  do |course_detail| %>
+          <tr>
+          <td width="250"><h6> <%= "#{course_detail.student_id}" %></h6></td>
+          <td width="250"><h6> <%= "#{get_student_name(course_detail.student_id)}" %> </h6></td>
+          <td width="250"><h6> <%= "#{getAverage(params[:id],course_detail.student_id)}" %></h6></td>
+          </tr>
+
+          <% end %>
+        </tbody>
+        </table>
+
+     <% else %>
+     <h5>You currently do not have any Courses.</h5>
+    <% end %>
+<h5><a href="/teacher_courses"><button class="btn btn-primary">GO BACK</button></a></h5>
+</div>

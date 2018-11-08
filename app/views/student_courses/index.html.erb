@@ -1,0 +1,32 @@
+<div class="devise_container">
+<h4>Welcome <%= current_student.firstname.capitalize if current_student.firstname %>!</h4>
+
+    <% if current_student.student_courses.present? %>
+
+      <h5 class="green-text">Here are your courses and the  average for each:</h5>
+      <table>
+        <tbody>
+          <tr>
+          <td width="150"><h5>Student ID</h5></td>
+          <td width="150"><h5>Course ID</h5></td>
+          <td width="150"><h5>Course Name</h5></td>
+          <td width="150"><h5>Course Average</h5></td>
+          <td width="300"><h5>Student Actions</h5></td>
+          </tr>
+          <% current_student.student_courses.each do |student_course| %>
+          <tr>
+          <td width="150"><h6> <%= "#{current_student.id}"%></h6></td>
+          <td width="150"><h6> <%= "#{student_course.course_id}"%></h6></td>
+          <td width="150"><h6> <%= "#{get_course_name(student_course.course_id)}"%></h6></td>
+          <td width="150"><h6> <%= "#{getAverage(student_course.course_id,current_student.id)}" %></h6></td>
+          <td width="150"><h6> <%= link_to "View details for this course.", course_course_details_path(student_course.course_id) %></h6></td>
+          </tr>
+          <% end %>
+        </tbody>
+        </table>
+
+     <% else %>
+     <h5>You currently do not have any Courses. Please contact Admistrator.</h5>
+    <% end %>
+
+</div>

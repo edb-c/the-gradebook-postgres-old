@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<!-- Fixed Invalid Token Error -->
+  <%= csrf_meta_tags %>
+
+  <title>The Gradebook</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- CSS  -->
+  <link href="/assets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/assets/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <%= javascript_include_tag :application %>
+
+</head>
+
+<body>
+  <body>
+    <nav class="white teal-text" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo brown-text">The Gradebook</a>
+<div class="right hide-on-med-and-down">
+       <a class="brown-text" <%= link_to "Home     |", root_path %></a>
+  <% if teacher_signed_in? %>
+        <a class="brown-text" <%= link_to "Teacher Log Out", destroy_teacher_session_path(:authenticity_token => form_authenticity_token()), method: :delete %></a>
+    <% elsif student_signed_in? %>
+        <a class="brown-text" <%= link_to "Student Log Out", destroy_student_session_path(:authenticity_token => form_authenticity_token()), method: :delete %></a>
+    <% else %>
+        <a class="brown-text" href="/teachers/sign_in">Teacher Login   </a>
+        <a class="brown-text" href="/students/sign_in">   |   Student Login</a>
+    <% end %>
+</div>
+<!--
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Register</a></li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+ -->
+      </div>
+    </nav>
+
+<!-- For Devise -->
+<div class="devise_container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+</div>
+
+
+  <%= yield %>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Ethel Cofresi</h5>
+          <ul>
+            <li><class="white-text">Software Engineer Web Development</li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">The Gradebook</h5>
+          <ul>
+            <li><class="white-text">Ruby on Rails Application</li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">October 2018</h5>
+          <ul>
+            <li><class="white-text">Flatiron School Portfolio Project</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made with <span style="color: #e25555;">&hearts;</span> by <a class="white-text" href="http://www.ethelcofresi.com">E.Cofresi 2018</a>
+      </div>
+  </footer>
+
+
+  <!--  Scripts  -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/materialize.js"></script>
+  <script src="assets/init.js"></script>
+
+  </body>
+</html>
