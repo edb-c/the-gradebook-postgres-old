@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2018_11_16_004409) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "course_details", force: :cascade do |t|
     t.string "assignment_name"
     t.integer "assignment_grade"
-    t.integer "course_id"
-    t.integer "student_id"
-    t.integer "teacher_id"
+    t.bigint "course_id"
+    t.bigint "student_id"
+    t.bigint "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_course_details_on_course_id"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 2018_11_16_004409) do
   end
 
   create_table "student_courses", force: :cascade do |t|
-    t.integer "student_id"
-    t.integer "course_id"
+    t.bigint "student_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_student_courses_on_course_id"
@@ -60,8 +63,8 @@ ActiveRecord::Schema.define(version: 2018_11_16_004409) do
   end
 
   create_table "teacher_courses", force: :cascade do |t|
-    t.integer "teacher_id"
-    t.integer "course_id"
+    t.bigint "teacher_id"
+    t.bigint "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_teacher_courses_on_course_id"
