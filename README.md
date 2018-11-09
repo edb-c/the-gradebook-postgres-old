@@ -1,4 +1,4 @@
-# ----  IN DEVELOPMENT -----
+# https://the-gradebook-postgres.herokuapp.com/
 
 # The Gradebook application
 
