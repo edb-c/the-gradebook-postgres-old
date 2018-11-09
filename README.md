@@ -1,4 +1,6 @@
-# https://the-gradebook-postgres.herokuapp.com/
+This version uses Postgres database for Heroku deployment.  https://the-gradebook-postgres.herokuapp.com/
+
+Original version:  https://github.com/edb-c/the-gradebook
 
 # The Gradebook application
 
