@@ -1,6 +1,12 @@
-This version uses Postgres database for Heroku deployment.  https://the-gradebook-postgres.herokuapp.com/
 
-Original version:  https://github.com/edb-c/the-gradebook
+To help activate the ol' noodle, when needed.
+
+Link:  [The Gradebook Noters](http://ethelcofresi.com/Flatiron/DRAFT-the-gradebook-ec.pdf)
+
+Live Demo:  [https://the-gradebook-postgres.herokuapp.com/](https://the-gradebook-postgres.herokuapp.com/)
+
+Test Data:   teacher1@email.com / password1   student1@email.com / spassword1
+
 
 # The Gradebook application
 
