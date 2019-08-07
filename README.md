@@ -1,7 +1,7 @@
 
 To help activate the ol' noodle, when needed.
 
-Link:  [The Gradebook Noters](http://ethelcofresi.com/Flatiron/DRAFT-the-gradebook-ec.pdf)
+Link:  [The Gradebook Noters](http://ethelcofresi.com/Flatiron/the-gradebook.pdf)
 
 Live Demo:  [https://the-gradebook-postgres.herokuapp.com/](https://the-gradebook-postgres.herokuapp.com/)
 
